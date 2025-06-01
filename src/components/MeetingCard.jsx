@@ -1,10 +1,12 @@
 import React from 'react'
 import ContactsInput from './ContactsInput'
 import LinkInput from './LinkInput'
+import TextInput from './TextInput'
+import AreaInput from './AreaInput'
 
 function MeetingCard() {
     return (
-        <div className="max-w-xl mx-auto my-6 p-6 rounded-2xl shadow-xl border border-base-300">
+        <div className="card bg-base-300 text-primary-content w-128 mx-auto my-6 p-6">
             <input type="text" placeholder="Meeting Name" className="input input-ghost" />
 
             <div className="grid gap-2 text-base-content">
@@ -12,23 +14,15 @@ function MeetingCard() {
                     <input type="date" className="input input-primary" />
                     <input type="time" className="input input-primary" />
                 </div>
+                <TextInput name="Location" />
+                <TextInput name="Contact" />
+                <TextInput name="Link" />
                 <div className="flex gap-2">
-                    <input type="text" placeholder="Location" className="input" />
-                </div>
-                <div className="flex gap-2">
-                    <ContactsInput />
-                </div>
-                <div className="flex gap-2">
-                    <LinkInput />
+                    <AreaInput name="Items" />
+                    <AreaInput name="Todo" />
                 </div>
                 <div className="flex gap-2">
-                    <textarea className="textarea" placeholder="Components"></textarea>
-                </div>
-                <div className="flex gap-2 items-start">
-                    <textarea className="textarea" placeholder="Todo"></textarea>
-                </div>
-                <div className="flex gap-2 items-start">
-                    <textarea className="textarea" placeholder="Notes"></textarea>
+                    <AreaInput name="Notes" />
                 </div>
             </div>
         </div>
