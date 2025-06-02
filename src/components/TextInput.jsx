@@ -16,7 +16,6 @@ function TextInput({ name }) {
                 <input type="text" placeholder={`${name}`} />
             </label>
         </>
-
     )
 }
 
