@@ -8,14 +8,14 @@ const iconMap = {
     Notes: <PencilSquareIcon className="size-6" />,
 }
 
-function AreaInput({ name }) {
-    const icon = iconMap[name] || <InformationCircleIcon className='size-6' />
+function AreaInput({ inputName, onChange }) {
+    const icon = iconMap[inputName] || <InformationCircleIcon className='size-6' />
 
     return (
         <>
             <label className="textarea w-full">
                 {icon}
-                <textarea className="w-full" placeholder={`${name}`}></textarea>
+                <textarea className="w-full" placeholder={`${inputName}`} onChange={e => onChange(inputName.toLowerCase(), e.target.value)} ></textarea>
             </label>
         </>
     )

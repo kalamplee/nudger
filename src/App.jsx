@@ -1,11 +1,30 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
-import MeetingCard from './components/MeetingCard'
+import MeetingForm from './components/MeetingForm'
 import NudgeButton from './components/NudgeButton'
+import MeetingCard from './components/MeetingCard'
 import html2canvas from 'html2canvas-pro'
 
 function App() {
   const cardRef = useRef(null)
+  const [card, setCard] = useState({
+    title: 'Your Meeting',
+    date: '02-06-2025',
+    time: '11:00 AM',
+    location: 'siam square',
+    contact: '081-2345678',
+    link: 'https://example.com',
+    items: '- Item 1\n- Item 2',
+    todo: '- Task 1\n- Task 2',
+    notes: 'Some notes about the meeting...'
+  })
+
+  function handleChange(key, value) {
+    setCard((prevCard) => ({
+      ...prevCard,
+      [key]: (value ? value : `Unknown ${key}`)
+    }))
+  }
 
   const handleNudge = async () => {
     if (cardRef.current) {
@@ -20,7 +39,8 @@ function App() {
 
   return (
     <>
-      <MeetingCard ref={cardRef} />
+      <MeetingForm onChangeHandler={handleChange} />
+      <MeetingCard data={card} ref={cardRef} />
       <NudgeButton onClick={handleNudge} />
     </>
   )

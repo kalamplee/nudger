@@ -7,13 +7,13 @@ const iconMap = {
     Link: <LinkIcon className="size-6" />,
 }
 
-function TextInput({ name }) {
-    const icon = iconMap[name] || <InformationCircleIcon className='size-6' />
+function TextInput({ inputName, onChange }) {
+    const icon = iconMap[inputName] || <InformationCircleIcon className='size-6' />
     return (
         <>
             <label className="input w-full">
                 {icon}
-                <input type="text" placeholder={`${name}`} />
+                <input type="text" placeholder={`${inputName}`} onChange={e => onChange(inputName.toLowerCase(), e.target.value)} />
             </label>
         </>
     )
