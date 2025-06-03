@@ -8,31 +8,35 @@ import html2canvas from 'html2canvas-pro'
 function App() {
   const cardRef = useRef(null)
   const [card, setCard] = useState({
-    title: 'Your Meeting',
-    date: '02-06-2025',
-    time: '11:00 AM',
-    location: 'siam square',
-    contact: '081-2345678',
-    link: 'https://example.com',
-    items: '- Item 1\n- Item 2',
-    todo: '- Task 1\n- Task 2',
-    notes: 'Some notes about the meeting...'
+    title: '',
+    date: '',
+    time: '',
+    location: '',
+    contact: '',
+    link: '',
+    items: '',
+    todo: '',
+    notes: ''
   })
 
   function handleChange(key, value) {
     setCard((prevCard) => ({
       ...prevCard,
-      [key]: (value ? value : `Unknown ${key}`)
+      [key]: (value ? value : '')
     }))
   }
 
   const handleNudge = async () => {
+    if (card.date === '' || card.time === '' || card.location === '' || card.title === '') {
+      alert('The Title, Date, Time, and Location is Required to Nudge')
+      return
+    }
     if (cardRef.current) {
       const canvas = await html2canvas(cardRef.current)
       const imgData = canvas.toDataURL('image/png')
       const link = document.createElement('a')
       link.href = imgData
-      link.download = 'meeting-card.png'
+      link.download = 'nudger.png'
       link.click()
     }
   }

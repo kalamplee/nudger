@@ -3,9 +3,9 @@ import { CheckCircleIcon, InformationCircleIcon, PencilSquareIcon, WrenchScrewdr
 
 
 const iconMap = {
-    Items: <WrenchScrewdriverIcon className="size-6" />,
-    Todo: <CheckCircleIcon className="size-6" />,
-    Notes: <PencilSquareIcon className="size-6" />,
+    Items: <WrenchScrewdriverIcon className="size-6 fill-gray-500" />,
+    Todo: <CheckCircleIcon className="size-6 fill-gray-500" />,
+    Notes: <PencilSquareIcon className="size-6 fill-gray-500" />,
 }
 
 function AreaInput({ inputName, onChange }) {
