@@ -1,11 +1,34 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect, use } from 'react'
 import './App.css'
 import MeetingForm from './components/MeetingForm'
 import NudgeButton from './components/NudgeButton'
 import MeetingCard from './components/MeetingCard'
 import html2canvas from 'html2canvas-pro'
+import axios from 'axios'
+
+const baseURL = "https://jsonplaceholder.typicode.com/users"
 
 function App() {
+  const [posts, setPosts] = useState(null)
+
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const response = await axios.get(baseURL)
+        setPosts(response.data)
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      }
+    }
+    fetchPosts()
+  }, [])
+  useEffect(() => {
+    if (posts) {
+      console.log('Posts fetched:', posts[0].title)
+    }
+  }, [posts])
+
+
   const cardRef = useRef(null)
   const [card, setCard] = useState({
     title: '',
