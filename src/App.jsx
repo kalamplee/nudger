@@ -48,7 +48,6 @@ function App() {
       ...prevCard,
       [key]: (value ? value : '')
     }))
-    console.log(`Card: ${JSON.stringify(card)}`)
   }
 
   const handleNudge = async () => {

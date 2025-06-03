@@ -1,6 +1,7 @@
 import React from 'react'
 import TextInput from './TextInput'
 import AreaInput from './AreaInput'
+import LocationInput from './LocationInput'
 
 function MeetingForm({ onChangeHandler }) {
     return (
@@ -20,7 +21,7 @@ function MeetingForm({ onChangeHandler }) {
                     </label>
                 </div>
             </div>
-            <TextInput inputName="Location" onChange={onChangeHandler} required={true} />
+            <LocationInput inputName="Location" onChange={onChangeHandler} required={true} />
             <TextInput inputName="Contact" onChange={onChangeHandler} />
             <TextInput inputName="Link" onChange={onChangeHandler} />
             <AreaInput inputName="Items" onChange={onChangeHandler} />
