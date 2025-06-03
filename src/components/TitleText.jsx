@@ -4,7 +4,7 @@ function TitleText({ data }) {
     if (!data || data.trim() === "") {
         return (
             <h1 className="text-center text-red-500">
-                No Meeting Name
+                Untitled Meeting
             </h1>
         )
     }

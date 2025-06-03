@@ -4,14 +4,27 @@ import DataCard from './DataCard'
 import ListCard from './ListCard'
 import TitleText from './TitleText'
 
+function formatDate(date) {
+    const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
+    return new Date(date).toLocaleDateString("en-GB", options)
+}
+function formatTime(time, is24Hour = false) {
+    const options = { hour: '2-digit', minute: '2-digit', hour12: !is24Hour }
+    return new Date(`1970-01-01T${time}`).toLocaleTimeString(undefined, options)
+}
+
 
 function MeetingCard({ data, ref }) {
     return (
         <div ref={ref} className="card bg-base-300 text-primary-content w-128 mx-auto my-6 p-6 gap-2">
             <TitleText data={data.title} />
-            <div className="flex flex-auto justify-center gap-2">
-                <DataCard data={data.date} iconName="Date" required={true} />
-                <DataCard data={data.time} iconName="Time" required={true} />
+            <div className="flex justify-center gap-2">
+                <div className="grow">
+                    <DataCard data={formatDate(data.date)} iconName="Date" required={true} />
+                </div>
+                <div className='grow'>
+                    <DataCard data={formatTime(data.time, data.is24Hour)} iconName="Time" required={true} />
+                </div>
             </div>
             <DataCard data={data.location} iconName="Location" required={true} />
             <DataCard data={data.contact} iconName="Contact" />

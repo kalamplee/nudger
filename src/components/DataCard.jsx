@@ -18,12 +18,12 @@ const iconMap = {
 
 function DataCard({ data, iconName, required = false }) {
     const icon = iconMap[iconName] || <InformationCircleIcon className='size-6' />
-    if (required && !data) {
+    if (required && !data || data === 'Invalid Date' || data === 'Invalid Time') {
         return (
             <div className='card bg-base-100 justify-center p-4 w-full border-red-500 border-2'>
                 <div className='flex gap-2'>
                     {icon}
-                    <span className='text-red-500'>{iconName} is required</span>
+                    <span className='text-red-500'>Unknown {iconName}</span>
                 </div>
             </div>
         )

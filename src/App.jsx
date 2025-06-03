@@ -11,6 +11,7 @@ function App() {
     title: '',
     date: '',
     time: '',
+    is24Hour: false,
     location: '',
     contact: '',
     link: '',
@@ -24,6 +25,7 @@ function App() {
       ...prevCard,
       [key]: (value ? value : '')
     }))
+    console.log(`Card: ${JSON.stringify(card)}`)
   }
 
   const handleNudge = async () => {
@@ -42,11 +44,19 @@ function App() {
   }
 
   return (
-    <>
-      <MeetingForm onChangeHandler={handleChange} />
-      <MeetingCard data={card} ref={cardRef} />
-      <NudgeButton onClick={handleNudge} />
-    </>
+    <div className="App">
+      <header className="App-header">
+        <h1 className="text-3xl font-bold">nudger</h1>
+        <p className="text-lg">Create and Nudge Meeting Cards</p>
+      </header>
+      <div className='flex justify-center gap-4'>
+        <MeetingForm onChangeHandler={handleChange} />
+        <div>
+          <MeetingCard data={card} ref={cardRef} />
+          <NudgeButton onClick={handleNudge} />
+        </div>
+      </div>
+    </div>
   )
 }
 
