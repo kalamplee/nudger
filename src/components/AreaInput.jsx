@@ -3,9 +3,9 @@ import { CheckCircleIcon, InformationCircleIcon, PencilSquareIcon, WrenchScrewdr
 
 
 const iconMap = {
-    Items: <WrenchScrewdriverIcon className="size-6 fill-gray-500" />,
-    Todo: <CheckCircleIcon className="size-6 fill-gray-500" />,
-    Notes: <PencilSquareIcon className="size-6 fill-gray-500" />,
+    Items: <WrenchScrewdriverIcon className="size-6 fill-primary" />,
+    Todo: <CheckCircleIcon className="size-6 fill-primary" />,
+    Notes: <PencilSquareIcon className="size-6 fill-primary" />,
 }
 
 function AreaInput({ inputName, onChange }) {
@@ -13,7 +13,7 @@ function AreaInput({ inputName, onChange }) {
 
     return (
         <>
-            <label className="textarea w-full">
+            <label className="textarea textarea-xl lg:textarea-md w-full">
                 {icon}
                 <textarea className="w-full" placeholder={`${inputName}`} onChange={e => onChange(inputName.toLowerCase(), e.target.value)} ></textarea>
             </label>

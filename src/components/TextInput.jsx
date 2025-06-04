@@ -2,32 +2,20 @@ import React from 'react'
 import { InformationCircleIcon, LinkIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
 
 const iconMap = {
-    Location: <MapPinIcon className="size-6 fill-gray-500" />,
-    Contact: <PhoneIcon className="size-6 fill-gray-500" />,
-    Link: <LinkIcon className="size-6 fill-gray-500" />,
+    Contact: <PhoneIcon className="size-6 fill-primary" />,
+    Link: <LinkIcon className="size-6 fill-primary" />,
 }
 
-function TextInput({ inputName, onChange, required = false }) {
+function TextInput({ inputName, onChange }) {
     const icon = iconMap[inputName] || <InformationCircleIcon className='size-6' />
-    if (required) {
-        return (
-            <>
-                <label className="input w-full input-primary">
-                    {icon}
-                    <input type="text" placeholder={`${inputName}`} onChange={e => onChange(inputName.toLowerCase(), e.target.value)} />
-                </label>
-            </>
-        )
-    } else {
-        return (
-            <>
-                <label className="input w-full">
-                    {icon}
-                    <input type="text" placeholder={`${inputName}`} onChange={e => onChange(inputName.toLowerCase(), e.target.value)} />
-                </label>
-            </>
-        )
-    }
+    return (
+        <>
+            <label className="input bg-base-100 input-xl lg:input-md w-full">
+                {icon}
+                <input type="text" placeholder={`${inputName}`} onChange={e => onChange(inputName.toLowerCase(), e.target.value)} />
+            </label>
+        </>
+    )
 
 }
 

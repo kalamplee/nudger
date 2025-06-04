@@ -3,13 +3,13 @@ import React from 'react'
 function TitleText({ data }) {
     if (!data || data.trim() === "") {
         return (
-            <h1 className="text-center text-red-500">
+            <div className="text-4xl justify-center italic">
                 Untitled Meeting
-            </h1>
+            </div>
         )
     }
     return (
-        <h1>{data}</h1>
+        <div className="font-black text-4xl justify-center text-base-100">{data}</div>
     )
 }
 

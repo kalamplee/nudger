@@ -2,9 +2,9 @@ import React from 'react'
 import { WrenchScrewdriverIcon, CheckCircleIcon, PencilSquareIcon, InformationCircleIcon } from '@heroicons/react/24/solid'
 
 const iconMap = {
-    Items: <WrenchScrewdriverIcon className="size-6" />,
-    Todo: <CheckCircleIcon className="size-6" />,
-    Notes: <PencilSquareIcon className="size-6" />,
+    Items: <WrenchScrewdriverIcon className="size-6 fill-primary" />,
+    Todo: <CheckCircleIcon className="size-6 fill-primary" />,
+    Notes: <PencilSquareIcon className="size-6 fill-primary" />,
 }
 
 function ListCard({ data, iconName }) {
@@ -16,7 +16,7 @@ function ListCard({ data, iconName }) {
     return (
         <div className='card bg-base-100 items-center p-4 w-full'>
             {icon}
-            <ul className='text-left w-full'>
+            <ul className='text-left w-full text-primary list-disc list-inside'>
                 {items.map((item, idx) => (
                     <li key={idx}>{item}</li>
                 ))}

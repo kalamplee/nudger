@@ -6,8 +6,8 @@ function NudgeButton({ onClick }) {
 
 
     return (
-        <button className='btn btn-primary w-full btn-xl' onClick={onClick}>
-            nudge!
+        <button className='btn btn-xl btn-wide btn-secondary' onClick={onClick}>
+            <div className='text-4xl'>nudge!</div>
         </button>
     )
 }

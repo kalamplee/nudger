@@ -16,7 +16,7 @@ function formatTime(time, is24Hour = false) {
 
 function MeetingCard({ data, ref }) {
     return (
-        <div ref={ref} className="card bg-base-300 text-primary-content w-128 mx-auto my-6 p-6 gap-2">
+        <div ref={ref} className="card bg-primary text-primary-content mx-auto my-6 p-6 gap-2">
             <TitleText data={data.title} />
             <div className="flex justify-center gap-2">
                 <div className="grow">

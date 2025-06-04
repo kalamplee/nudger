@@ -69,9 +69,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="text-3xl font-bold">nudger</h1>
-        <p className="text-lg">Create and Nudge Meeting Cards</p>
+        <p className="text-lg">Nudging the Meeting</p>
       </header>
-      <div className='flex justify-center gap-4'>
+      <div className='flex justify-center lg:flex-row flex-col lg:gap-4'>
         <MeetingForm onChangeHandler={handleChange} />
         <div>
           <MeetingCard data={card} ref={cardRef} />

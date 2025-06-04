@@ -3,7 +3,7 @@ import { MapPinIcon } from '@heroicons/react/24/solid'
 import axios from 'axios'
 
 
-function LocationInput({ inputName, onChange, required = false }) {
+function LocationInput({ inputName, onChange }) {
     const [locations, setLocations] = useState(null)
     const fetchLocations = async (inputLocation = 'London') => {
         try {
@@ -21,8 +21,8 @@ function LocationInput({ inputName, onChange, required = false }) {
     }
     return (
         <>
-            <label className="input w-full input-primary">
-                <MapPinIcon className="size-6 fill-gray-500" />
+            <label className="input input-primary input-xl lg:input-md w-full">
+                <MapPinIcon className="size-6 fill-primary" />
                 <input type="text" placeholder="Location" onChange={e => handleLocationRender(e)} list='LocationSuggest' />
                 <datalist id='LocationSuggest'>
                     {locations && locations.map((location, index) => (
