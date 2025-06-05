@@ -5,7 +5,7 @@ import LocationInput from './LocationInput'
 
 function MeetingForm({ onChangeHandler }) {
     return (
-        <div className="card bg-base-300 my-6 p-6 gap-2">
+        <div className="card bg-base-300 my-2 p-6 gap-2">
             <input type="text" placeholder="Meeting Name" onChange={e => onChangeHandler("title", e.target.value)} className="input input-xl text-center input-primary w-full lg:input-lg" />
             <input type="date" className="input input-primary input-xl lg:input-md w-full" onChange={e => onChangeHandler("date", e.target.value)} />
             <div className="flex gap-2 w-full">

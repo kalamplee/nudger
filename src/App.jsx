@@ -9,25 +9,6 @@ import axios from 'axios'
 const baseURL = "https://jsonplaceholder.typicode.com/users"
 
 function App() {
-  const [posts, setPosts] = useState(null)
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const response = await axios.get(baseURL)
-        setPosts(response.data)
-      } catch (error) {
-        console.error('Error fetching posts:', error)
-      }
-    }
-    fetchPosts()
-  }, [])
-  useEffect(() => {
-    if (posts) {
-      console.log('Posts fetched:', posts[0].title)
-    }
-  }, [posts])
-
 
   const cardRef = useRef(null)
   const [card, setCard] = useState({
@@ -67,17 +48,28 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold">nudger</h1>
-        <p className="text-lg">Nudging the Meeting</p>
+      <header className="App-header flex flex-col gap-2">
+        <h1 className="text-5xl font-bold">nudger (นัดเจอ)</h1>
+        <p className="text-sm">A simple web application for make a meeting card.</p>
       </header>
       <div className='flex justify-center lg:flex-row flex-col lg:gap-4'>
-        <MeetingForm onChangeHandler={handleChange} />
-        <div>
+        <div className='my-4'>
+          <p className="text-sm text-accent-content">Fill this form with your meeting information</p>
+          <MeetingForm onChangeHandler={handleChange} />
+        </div>
+        <div className='my-4'>
+          <p className="text-sm text-accent-content">What does the meeting card looks like</p>
           <MeetingCard data={card} ref={cardRef} />
+          <p className="text-sm text-accent-content">Press the button to save the card</p>
           <NudgeButton onClick={handleNudge} />
         </div>
       </div>
+      <footer>
+        <div className="flex flex-col justify-center text-base-content">
+          <p className="text-sm">Made with ❤️ by <a href="https://github.com/kalamplee" className="link link-primary">kalamplee</a></p>
+          <p className="text-xs">Powered by <a href="https://react.dev" className="link link-primary">React</a> and <a href="https://daisyui.com" className="link link-primary">DaisyUI</a></p>
+        </div>
+      </footer>
     </div>
   )
 }

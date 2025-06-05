@@ -6,7 +6,7 @@ function NudgeButton({ onClick }) {
 
 
     return (
-        <button className='btn btn-xl btn-wide btn-secondary' onClick={onClick}>
+        <button className='btn btn-xl btn-wide btn-secondary transition-all duration-300 hover:scale-105' onClick={onClick}>
             <div className='text-4xl'>nudge!</div>
         </button>
     )

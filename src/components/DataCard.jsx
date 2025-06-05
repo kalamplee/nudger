@@ -20,7 +20,7 @@ function DataCard({ data, iconName, required = false }) {
     const icon = iconMap[iconName] || <InformationCircleIcon className='size-6' />
     if (required && !data || data === 'Invalid Date' || data === 'Invalid Time') {
         return (
-            <div className='card bg-error justify-center p-2 w-full border-1'>
+            <div className='card bg-error justify-center p-2 w-full border-1 transition-all duration-600'>
                 <div className='flex gap-2'>
                     {icon}
                     <span className='italic'>Unknown {iconName}</span>
@@ -32,7 +32,7 @@ function DataCard({ data, iconName, required = false }) {
         return null;
     }
     return (
-        <div className='card bg-base-100 text-left justify-center p-2'>
+        <div className='card bg-base-100 text-left justify-center p-2 transition-all duration-600'>
             <div className='flex gap-2 items-center text-primary'>
                 <div>{icon}</div>
                 {data}

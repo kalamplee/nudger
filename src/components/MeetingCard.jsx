@@ -16,7 +16,7 @@ function formatTime(time, is24Hour = false) {
 
 function MeetingCard({ data, ref }) {
     return (
-        <div ref={ref} className="card bg-primary text-primary-content mx-auto my-6 p-6 gap-2">
+        <div ref={ref} className="card bg-primary text-primary-content mx-auto my-2 p-6 gap-2">
             <TitleText data={data.title} />
             <div className="flex justify-center gap-2">
                 <div className="grow">
@@ -34,6 +34,7 @@ function MeetingCard({ data, ref }) {
                 <ListCard data={data.todo} iconName="Todo" />
             </div>
             <ListCard data={data.notes} iconName="Notes" />
+            <div className='text-gray-700 italic'>powered by nudger</div>
         </div>
     )
 }
