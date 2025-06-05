@@ -6,8 +6,6 @@ import MeetingCard from './components/MeetingCard'
 import html2canvas from 'html2canvas-pro'
 import axios from 'axios'
 
-const baseURL = "https://jsonplaceholder.typicode.com/users"
-
 function App() {
 
   const cardRef = useRef(null)
@@ -49,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header flex flex-col gap-2">
-        <h1 className="text-5xl font-bold">nudger (นัดเจอ)</h1>
+        <div className="flex text-5xl font-bold justify-center text-primary"><img src="public/acorn.svg" className='size-12' alt="" /> nudger (นัดเจอ)</div>
         <p className="text-sm">A simple web application for make a meeting card.</p>
       </header>
       <div className='flex justify-center lg:flex-row flex-col lg:gap-4'>
